@@ -8,6 +8,10 @@ const BTN_CHARACTERISTIC_UUID   = '62FBD229-6EDD-4D1A-B554-5C4E1BB29169';
 const PSDI_SERVICE_UUID         = 'E625601E-9E55-4597-A598-76018A0D293D'; // Device ID
 const PSDI_CHARACTERISTIC_UUID  = '26E2B12B-85F0-4F3F-9FDD-91D114270E6E';
 
+// myRead Service UUID:
+const READ_SERVICE_UUID         = 'f3748e9a-ac99-4e39-96cf-0e084fd6be17';
+const READ_CHARACTERISTIC_UUID  = '2e65ea15-1658-4d2e-8851-7a533258eae1';
+
 // UI settings
 let ledState = false; // true: LED on, false: LED off
 let clickCount = 0;
@@ -221,6 +225,19 @@ function liffGetUserService(service) {
 
         // Switch off by default
         liffToggleDeviceLedState(false);
+    }).catch(error => {
+        uiStatusError(makeErrorMsg(error), false);
+    });
+}
+
+function liffGetMyReadService(service) {
+    // Read value
+    service.getCharacteristic(READ_CHARACTERISTIC_UUID).then(characteristic => {
+        return characteristic.readValue();
+    }).then(value => {
+        // Convert byte buffer to Int32 in little endian
+        const value = new DataView(value.buffer).getInt32(0, true);
+        document.getElementById("total-count").innerText = value;
     }).catch(error => {
         uiStatusError(makeErrorMsg(error), false);
     });
