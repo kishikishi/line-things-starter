@@ -10,7 +10,7 @@ const PSDI_CHARACTERISTIC_UUID  = '26E2B12B-85F0-4F3F-9FDD-91D114270E6E';
 
 // myRead Service UUID:
 const READ_SERVICE_UUID         = 'f3748e9a-ac99-4e39-96cf-0e084fd6be17';
-const READ_CHARACTERISTIC_UUID  = '2e65ea15-1658-4d2e-8851-7a533258eae1';
+// const READ_CHARACTERISTIC_UUID  = '2e65ea15-1658-4d2e-8851-7a533258eae1';
 
 // UI settings
 let ledState = false; // true: LED on, false: LED off
@@ -228,9 +228,7 @@ function liffGetUserService(service) {
     }).catch(error => {
         uiStatusError(makeErrorMsg(error), false);
     });
-}
-
-function liffGetMyReadService(service) {
+    
     // Read value
     service.getCharacteristic(READ_CHARACTERISTIC_UUID).then(characteristic => {
         return characteristic.readValue();
@@ -241,7 +239,21 @@ function liffGetMyReadService(service) {
     }).catch(error => {
         uiStatusError(makeErrorMsg(error), false);
     });
+
 }
+
+// function liffGetMyReadService(service) {
+//     // Read value
+//     service.getCharacteristic(READ_CHARACTERISTIC_UUID).then(characteristic => {
+//         return characteristic.readValue();
+//     }).then(value => {
+//         // Convert byte buffer to Int32 in little endian
+//         const value = new DataView(value.buffer).getInt32(0, true);
+//         document.getElementById("total-count").innerText = value;
+//     }).catch(error => {
+//         uiStatusError(makeErrorMsg(error), false);
+//     });
+// }
 
 function liffGetPSDIService(service) {
     // Get PSDI value
