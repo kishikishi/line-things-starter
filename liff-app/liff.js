@@ -14,7 +14,7 @@ const PSDI_CHARACTERISTIC_UUID  = '26E2B12B-85F0-4F3F-9FDD-91D114270E6E';
 // const RACTERISTIC_UUID  = '2e65ea15-1658-4d2e-8851-7a533258eae1';
 
 // UI settings
-let ledState = false; // true: LED on, false: LED off
+let ledState = ; // true: LED on, false: LED off
 let clickCount = 0;
 
 // -------------- //
