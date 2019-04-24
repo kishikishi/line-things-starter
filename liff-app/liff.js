@@ -284,6 +284,9 @@ function liffGetButtonStateCharacteristic(characteristic) {
                 uiToggleStateButton(false);
                 uiCountPressButton();
             }
+        const el = document.getElementById("btn-state");
+        el.classList.add("pressed");
+        el.innerText = "Pressed";
         });
     }).catch(error => {
         uiStatusError(makeErrorMsg(error), false);
