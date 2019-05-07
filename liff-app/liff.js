@@ -7,6 +7,11 @@ const BTN_CHARACTERISTIC_UUID   = '62FBD229-6EDD-4D1A-B554-5C4E1BB29169';
 // PSDI Service UUID: Fixed value for Developer Trial
 const PSDI_SERVICE_UUID         = 'E625601E-9E55-4597-A598-76018A0D293D'; // Device ID
 const PSDI_CHARACTERISTIC_UUID  = '26E2B12B-85F0-4F3F-9FDD-91D114270E6E';
+const user_command = '25bd9d85-ab09-4c0c-8b98-126f6360fd3d';
+const user_excommand = '2a1cff18-5f5d-43ce-8c95-e557650d5822'; 
+const user_responce = 'b9331036-fb06-4d15-bafd-e07ceb1b75ac';
+const user_status = '6fff8fb7-3bd8-4954-97bb-61977acb5456';
+const user_log  = '7b8a427f-cdd6-43b7-a324-bb6fde51a8d1'; 
 
 // UI settings
 let ledState = false; // true: LED on, false: LED off
