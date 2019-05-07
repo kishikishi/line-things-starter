@@ -182,11 +182,11 @@ function liffConnectToDevice(device) {
         }).catch(error => {
             uiStatusError(makeErrorMsg(error), false);
         });
-//         device.gatt.getPrimaryService(PSDI_SERVICE_UUID).then(service => {
-//             liffGetPSDIService(service);
-//         }).catch(error => {
-//             uiStatusError(makeErrorMsg(error), false);
-//         });
+        device.gatt.getPrimaryService(PSDI_SERVICE_UUID).then(service => {
+            liffGetPSDIService(service);
+        }).catch(error => {
+            uiStatusError(makeErrorMsg(error), false);
+        });
 
         // Device disconnect callback
         const disconnectCallback = () => {
