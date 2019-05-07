@@ -182,11 +182,11 @@ function liffConnectToDevice(device) {
         }).catch(error => {
             uiStatusError(makeErrorMsg(error), false);
         });
-        device.gatt.getPrimaryService(PSDI_SERVICE_UUID).then(service => {
-            liffGetPSDIService(service);
-        }).catch(error => {
-            uiStatusError(makeErrorMsg(error), false);
-        });
+//         device.gatt.getPrimaryService(PSDI_SERVICE_UUID).then(service => {
+//             liffGetPSDIService(service);
+//         }).catch(error => {
+//             uiStatusError(makeErrorMsg(error), false);
+//         });
 
         // Device disconnect callback
         const disconnectCallback = () => {
@@ -213,12 +213,12 @@ function liffConnectToDevice(device) {
 }
 
 function liffGetUserService(service) {
-    Button pressed state
-    service.getCharacteristic(BTN_CHARACTERISTIC_UUID).then(characteristic => {
-         liffGetButtonStateCharacteristic(characteristic);
-    }).catch(error => {
-        uiStatusError(makeErrorMsg(error), false);
-    });
+//     //Button pressed state
+//     service.getCharacteristic(BTN_CHARACTERISTIC_UUID).then(characteristic => {
+//          liffGetButtonStateCharacteristic(characteristic);
+//     }).catch(error => {
+//         uiStatusError(makeErrorMsg(error), false);
+//     });
 
     // Toggle LED
     service.getCharacteristic(LED_CHARACTERISTIC_UUID).then(characteristic => {
