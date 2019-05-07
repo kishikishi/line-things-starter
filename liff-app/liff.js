@@ -245,25 +245,25 @@ function liffGetPSDIService(service) {
     });
 }
 
-function liffGetButtonStateCharacteristic(characteristic) {
-    // Add notification hook for button state
-    // (Get notified when button state changes)
-    characteristic.startNotifications().then(() => {
-        characteristic.addEventListener('characteristicvaluechanged', e => {
-            const val = (new Uint8Array(e.target.value.buffer))[0];
-            if (val > 0) {
-                // press
-                uiToggleStateButton(true);
-            } else {
-                // release
-                uiToggleStateButton(false);
-                uiCountPressButton();
-            }
-        });
-    }).catch(error => {
-        uiStatusError(makeErrorMsg(error), false);
-    });
-}
+// function liffGetButtonStateCharacteristic(characteristic) {
+//     // Add notification hook for button state
+//     // (Get notified when button state changes)
+//     characteristic.startNotifications().then(() => {
+//         characteristic.addEventListener('characteristicvaluechanged', e => {
+//             const val = (new Uint8Array(e.target.value.buffer))[0];
+//             if (val > 0) {
+//                 // press
+//                 uiToggleStateButton(true);
+//             } else {
+//                 // release
+//                 uiToggleStateButton(false);
+//                 uiCountPressButton();
+//             }
+//         });
+//     }).catch(error => {
+//         uiStatusError(makeErrorMsg(error), false);
+//     });
+// }
 
 function liffToggleDeviceLedState(state) {
     // on: 0x01
